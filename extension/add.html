@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>LPH - Add Password</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { font:14px/1.4 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,system-ui; margin:0; padding:18px; color:#222; background:#fff; }
+    .container{ max-width:640px; margin:0 auto; }
+    h1 { margin:0 0 14px 0; font-size:20px; }
+    .card{ background:#fff; padding:18px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.08); }
+    .row{ display:flex; gap:12px; align-items:center; }
+    label{ display:block; margin-bottom:6px; font-size:13px; color:#444; }
+    input[type="text"], input[type="password"]{ width:100%; padding:10px 12px; border-radius:8px; border:1px solid #ddd; box-sizing:border-box; }
+    .logo-preview{ width:56px; height:56px; border-radius:10px; background:#f3f3f3; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .actions{ display:flex; gap:10px; margin-top:12px; }
+    button{ padding:10px 14px; border-radius:8px; border:none; cursor:pointer; }
+    .btn-primary{ background:#007AFF; color:#fff; }
+    .btn-muted{ background:#f2f2f2; color:#333; border:1px solid #ddd; }
+    .muted{ color:#666; font-size:13px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Add website password</h1>
+    <div class="card">
+      <form id="addForm">
+        <div style="display:flex; gap:12px; align-items:center; margin-bottom:12px;">
+          <div class="logo-preview" id="logoPreview"><img id="logoImg" src="icons/logo.png" alt="logo" style="width:100%; height:100%; object-fit:cover;"></div>
+          <div style="flex:1;">
+            <label for="siteInput">Website (URL or domain)</label>
+            <input id="siteInput" type="text" placeholder="https://example.com or example.com" required>
+          </div>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <label for="userInput">Username / Email</label>
+          <input id="userInput" type="text" placeholder="username or email" required>
+        </div>
+
+        <div style="margin-bottom:6px;">
+          <label for="pwdInput">Password</label>
+          <input id="pwdInput" type="password" placeholder="Password" required>
+        </div>
+
+        <div class="actions">
+          <button id="saveBtn" class="btn-primary" type="submit">Save</button>
+          <button id="cancelBtn" class="btn-muted" type="button">Cancel</button>
+          <div style="flex:1" />
+          <div class="muted">Tip: You can paste a URL or just the domain.</div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="add.js"></script>
+</body>
+</html>

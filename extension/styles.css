@@ -1,0 +1,5 @@
+/* Shared minimal styles for LPH Password Manager */
+:root { color-scheme: light dark; }
+body { background: Canvas; color: CanvasText; }
+button { background: ButtonFace; color: ButtonText; border: 1px solid ButtonBorder; border-radius: 8px; padding: 6px 10px; }
+input { padding: 6px 8px; border: 1px solid #ccc; border-radius: 8px; width: 100%; box-sizing: border-box; }

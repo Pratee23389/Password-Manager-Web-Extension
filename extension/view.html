@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>LPH - Saved Passwords</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { font: 14px/1.4 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,system-ui; margin:0; padding:12px; }
+    .root { display:flex; gap:12px; }
+    aside { width:180px; background:#f8f8f8; padding:12px; border-radius:8px; box-sizing:border-box; }
+    main { flex:1; }
+    .header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    h1 { margin:0; font-size:20px; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px; }
+    .card { padding:16px; background:#efefef; border-radius:8px; border:1px solid #d7d7d7; box-shadow:0 2px 2px rgba(0,0,0,0.04); }
+    .card h3 { margin:0 0 6px 0; }
+    .muted { color:#666; }
+    .actions { display:flex; gap:8px; margin-top:10px; }
+    .small { font-size:13px; padding:6px 8px; border-radius:6px; }
+    .btn-copy { background:#007AFF; color:#fff; border:none; }
+    .btn-del { background:transparent; color:#b00; border:1px solid #f2c; }
+    .logo { width:48px; height:48px; object-fit:contain; }
+  </style>
+</head>
+<body>
+  <div class="root">
+    <aside>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="icons/logo.png" alt="LPH" class="logo">
+        <div style="font-weight:700;">LPH</div>
+      </div>
+      <nav style="margin-top:16px; display:flex; flex-direction:column; gap:10px;">
+        <a href="#" id="navAccount">Account</a>
+        <a href="#" id="navAdd">Add Password</a>
+        <a href="#" id="navShare">Secure Share</a>
+      </nav>
+      <div style="margin-top:24px;">
+        <button id="openPopup">Open Popup</button>
+      </div>
+    </aside>
+    <main>
+      <div class="header">
+        <h1>Saved Passwords</h1>
+        <div>
+          <input id="searchInput" placeholder="Search..." style="padding:8px 12px; border-radius:24px; border:1px solid #ddd;">
+        </div>
+      </div>
+
+      <div id="emptyMsg" class="muted" style="display:none; margin-top:12px;">No stored credentials.</div>
+      <div id="grid" class="grid"></div>
+    </main>
+  </div>
+
+  <script type="module" src="view.js"></script>
+</body>
+</html>

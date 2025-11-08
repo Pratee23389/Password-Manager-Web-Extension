@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>LPH Password Manager - Options</title>
+  <style>
+    body { font: 14px/1.4 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,system-ui; max-width: 720px; margin: 24px auto; padding: 0 16px; }
+    h1 { font-size: 20px; }
+    .card { border:1px solid #ddd; border-radius:12px; padding:16px; margin:12px 0; }
+    label { display:block; margin: 6px 0; }
+    button { cursor:pointer; }
+    .muted { color:#666; }
+  </style>
+</head>
+<body>
+  <h1>LPH Password Manager Settings</h1>
+
+  <div class="card">
+    <h2>Master password</h2>
+    <p class="muted">Set or change your master password. This encrypts all credentials locally using strong cryptography. If you forget it, your data cannot be recovered.</p>
+    <label>New master password
+      <input type="password" id="newPwd" style="width:100%;">
+    </label>
+    <label>Confirm password
+      <input type="password" id="confirmPwd" style="width:100%;">
+    </label>
+    <button id="setPwdBtn">Set password</button>
+    <div id="setPwdMsg" class="muted"></div>
+  </div>
+
+  <div class="card">
+    <h2>Danger zone</h2>
+    <p class="muted">Wipe all stored data and reset LPH. You'll need to set a new master password.</p>
+    <button id="wipeBtn" style="color:#b00;">Wipe all data</button>
+    <div id="wipeMsg" class="muted"></div>
+  </div>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>
