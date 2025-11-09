@@ -68,10 +68,11 @@ async function deriveVaultKey(seed) {
     'raw',
     seed.slice(0, 32),
     { name: 'AES-GCM', length: 256 },
-    false,
+    true,                  // ← MUST be true to export later
     ['encrypt', 'decrypt']
   );
 }
+
 
 async function deriveMasterPasswordKey(masterPassword, salt) {
   const enc = new TextEncoder();
@@ -105,12 +106,12 @@ async function generateKeyPair() {
       publicExponent: new Uint8Array([1, 0, 1]),
       hash: 'SHA-256'
     },
-    true,
+    true, // <-- must be true to allow exportKey('spki'/'pkcs8')
     ['encrypt', 'decrypt']
   );
-  
   return keyPair;
 }
+
 
 async function encryptData(data, key) {
   const iv = crypto.getRandomValues(new Uint8Array(12));
