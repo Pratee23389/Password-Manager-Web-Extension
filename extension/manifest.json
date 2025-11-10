@@ -1,25 +1,28 @@
 {
   "manifest_version": 3,
   "name": "LPH Password Manager",
-  "version": "0.2.0",
-  "description": "LPH Password Manager: a minimal, local password manager for Chromium browsers. Detects login forms, saves encrypted credentials locally.",
+  "version": "1.0.0",
+  "description": "A secure, end-to-end encrypted password manager with mnemonic recovery and cloud sync.",
+
   "permissions": [
     "storage",
     "activeTab",
-    "scripting",
     "tabs",
-    "notifications"
+    "scripting"
   ],
+
   "host_permissions": [
     "http://*/*",
     "https://*/*"
   ],
+
   "icons": {
     "16": "icons/logo.png",
     "32": "icons/logo.png",
     "48": "icons/logo.png",
     "128": "icons/logo.png"
   },
+
   "action": {
     "default_title": "LPH Password Manager",
     "default_popup": "popup.html",
@@ -30,22 +33,38 @@
       "128": "icons/logo.png"
     }
   },
-  "options_page": "options.html",
+
   "background": {
     "service_worker": "background.js",
     "type": "module"
   },
+
+  "options_page": "options.html",
+
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*"],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
       "js": ["contentScript.js"],
       "run_at": "document_idle"
     }
   ],
+
   "web_accessible_resources": [
     {
       "resources": [
-        "styles.css"
+        "icons/*",
+        "auth.html",
+        "popup.html",
+        "mnemonic-display.html",
+        "mnemonic-verify.html",
+        "signup-complete.html",
+        "recover.html",
+        "add.html",
+        "view.html",
+        "options.html"
       ],
       "matches": ["<all_urls>"]
     }

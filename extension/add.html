@@ -2,57 +2,132 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>LPH - Add Password</title>
+  <title>Add Password - LPH</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    body { font:14px/1.4 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,system-ui; margin:0; padding:18px; color:#222; background:#fff; }
-    .container{ max-width:640px; margin:0 auto; }
-    h1 { margin:0 0 14px 0; font-size:20px; }
-    .card{ background:#fff; padding:18px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.08); }
-    .row{ display:flex; gap:12px; align-items:center; }
-    label{ display:block; margin-bottom:6px; font-size:13px; color:#444; }
-    input[type="text"], input[type="password"]{ width:100%; padding:10px 12px; border-radius:8px; border:1px solid #ddd; box-sizing:border-box; }
-    .logo-preview{ width:56px; height:56px; border-radius:10px; background:#f3f3f3; display:flex; align-items:center; justify-content:center; overflow:hidden; }
-    .actions{ display:flex; gap:10px; margin-top:12px; }
-    button{ padding:10px 14px; border-radius:8px; border:none; cursor:pointer; }
-    .btn-primary{ background:#007AFF; color:#fff; }
-    .btn-muted{ background:#f2f2f2; color:#333; border:1px solid #ddd; }
-    .muted{ color:#666; font-size:13px; }
+    body {
+      font: 14px/1.6 -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, system-ui;
+      margin: 0;
+      padding: 24px;
+      background: #f5f5f5;
+    }
+    .container {
+      max-width: 580px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin: 0 0 24px 0;
+      font-size: 24px;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #333;
+      font-size: 14px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+    input:focus {
+      outline: none;
+      border-color: #007AFF;
+    }
+    .button-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    button {
+      flex: 1;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: #007AFF;
+      color: white;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: #0051D5;
+    }
+    .btn-secondary {
+      background: #fff;
+      color: #666;
+      border: 2px solid #e0e0e0;
+    }
+    .btn-secondary:hover {
+      background: #f8f8f8;
+    }
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Add website password</h1>
-    <div class="card">
-      <form id="addForm">
-        <div style="display:flex; gap:12px; align-items:center; margin-bottom:12px;">
-          <div class="logo-preview" id="logoPreview"><img id="logoImg" src="icons/logo.png" alt="logo" style="width:100%; height:100%; object-fit:cover;"></div>
-          <div style="flex:1;">
-            <label for="siteInput">Website (URL or domain)</label>
-            <input id="siteInput" type="text" placeholder="https://example.com or example.com" required>
-          </div>
-        </div>
-
-        <div style="margin-bottom:12px;">
-          <label for="userInput">Username / Email</label>
-          <input id="userInput" type="text" placeholder="username or email" required>
-        </div>
-
-        <div style="margin-bottom:6px;">
-          <label for="pwdInput">Password</label>
-          <input id="pwdInput" type="password" placeholder="Password" required>
-        </div>
-
-        <div class="actions">
-          <button id="saveBtn" class="btn-primary" type="submit">Save</button>
-          <button id="cancelBtn" class="btn-muted" type="button">Cancel</button>
-          <div style="flex:1" />
-          <div class="muted">Tip: You can paste a URL or just the domain.</div>
-        </div>
-      </form>
-    </div>
+    <h1>➕ Add New Password</h1>
+    
+    <form id="addForm">
+      <div class="form-group">
+        <label for="website">Website (URL or domain)</label>
+        <input 
+          type="text" 
+          id="website" 
+          placeholder="https://example.com or example.com" 
+          required
+          autocomplete="off"
+        >
+      </div>
+      
+      <div class="form-group">
+        <label for="username">Username or Email</label>
+        <input 
+          type="text" 
+          id="username" 
+          placeholder="your.email@example.com" 
+          required
+          autocomplete="off"
+        >
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          placeholder="Enter password" 
+          required
+          autocomplete="new-password"
+        >
+      </div>
+      
+      <div class="button-group">
+        <button type="submit" class="btn-primary">Save Password</button>
+        <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
+      </div>
+    </form>
   </div>
-
+  
   <script type="module" src="add.js"></script>
 </body>
 </html>

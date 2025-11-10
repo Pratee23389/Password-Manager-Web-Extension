@@ -6,216 +6,333 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     body {
-      font: 13px/1.4 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,system-ui;
+      font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui;
       margin: 0;
-      padding: 12px;
-      min-width: 380px;
+      padding: 16px;
+      min-width: 420px;
+      max-width: 420px;
       box-sizing: border-box;
-      background: #0f0f0f;
-      color: #fff;
+      background: #fff;
+      color: #333;
     }
-    header {
+
+    .header {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #f0f0f0;
     }
-    h1 {
-      font-size: 26px;
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-section img {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+    }
+
+    .logo-section h1 {
       margin: 0;
-      flex: 1;
+      font-size: 18px;
       font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.5px;
+      color: #333;
     }
-    .status {
+
+    .status-section {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 13px;
-      color: #bdbdbd;
     }
+
     .status-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #8a8a8a;
-      display:inline-block;
-    }
-    .status-dot.unlocked {
-      background: #4CAF50;
-    }
-    .status-dot.synced {
-      background: #2196F3;
-    }
-    .toolbar {
-      display: flex;
-      gap: 6px;
-      align-items: center;
-    }
-    .toolbar button,
-    .toolbar a {
-      padding: 4px 8px;
-      font-size: 11px;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-    .sync-info {
-      background: #f0f8ff;
-      border: 1px solid #cce7ff;
-      border-radius: 8px;
-      padding: 8px;
-      margin-bottom: 12px;
-      font-size: 12px;
-    }
-    .sync-info.signed-out {
-      background: #fff9e6;
-      border-color: #ffe699;
-    }
-    .sync-info strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-    .sync-info button {
-      margin-top: 8px;
-      font-size: 11px;
-      padding: 4px 12px;
-    }
-    .row {
-      margin: 8px 0;
-    }
-    .cred {
-      padding: 8px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      margin: 6px 0;
-      word-break: break-word;
-      overflow-wrap: anywhere;
-    }
-    .cred strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-    .cred-actions {
-      display: flex;
-      gap: 6px;
-      margin-top: 6px;
-      flex-wrap: wrap;
-    }
-    button {
-      cursor: pointer;
-    }
-    .muted {
-      color: #666;
-    }
-    .left-link {
-      color: #e6e6e6;
-      text-decoration: underline;
-      font-weight: 600;
-      padding: 8px 4px;
-      font-size: 16px;
-      border-radius: 6px;
+      background: #dc3545;
     }
 
-    /* search box styling to match mock */
-    #searchBox {
-      border: 1px solid rgba(255,255,255,0.06);
-      background: rgba(40,40,40,0.6);
-      color: #cfcfcf;
-      box-shadow: none;
+    .status-dot.unlocked {
+      background: #28a745;
     }
-    #searchBox::placeholder { color: #8f8f8f; }
-    #searchBtn {
-      width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center; border-radius:10px;
-      border: 1px solid rgba(255,255,255,0.06); background: rgba(40,40,40,0.6); color:#ddd;
-    }
-    #viewAllBtn { border-radius:12px; padding:10px 16px; }
-    #site {
-      display: inline-block;
-      max-width: 100%;
-      overflow-wrap: anywhere;
-      word-break: break-word;
+
+    .status-text {
+      font-size: 12px;
+      color: #666;
       font-weight: 500;
     }
-    input[type="password"] {
-      min-width: 340px;
-      box-sizing: border-box;
+
+    .actions {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
     }
+
+    .btn {
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      background: #fff;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: #f8f8f8;
+    }
+
     .btn-primary {
       background: #007AFF;
       color: white;
-      border: none;
+      border-color: #007AFF;
     }
+
     .btn-primary:hover {
       background: #0051D5;
     }
+
     .btn-danger {
-      color: #b00;
+      color: #dc3545;
+      border-color: #dc3545;
+    }
+
+    .btn-danger:hover {
+      background: #fff5f5;
+    }
+
+    .search-section {
+      margin: 16px 0;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: #007AFF;
+    }
+
+    .locked-view {
+      text-align: center;
+      padding: 32px 16px;
+    }
+
+    .locked-view input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      margin: 16px 0;
+      box-sizing: border-box;
+    }
+
+    .locked-view button {
+      width: 100%;
+      padding: 12px;
+      background: #007AFF;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .credentials-list {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .cred-card {
+      background: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+      transition: all 0.2s;
+    }
+
+    .cred-card:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .cred-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .cred-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .cred-info {
+      flex: 1;
+    }
+
+    .cred-domain {
+      font-weight: 600;
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 2px;
+    }
+
+    .cred-username {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .cred-actions {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .cred-actions button {
+      flex: 1;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      background: #fff;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.2s;
+    }
+
+    .cred-actions button:hover {
+      background: #f0f0f0;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 48px 16px;
+      color: #999;
+    }
+
+    .empty-state-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .quick-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .quick-actions button {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #007AFF;
+      background: #fff;
+      color: #007AFF;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .quick-actions button:hover {
+      background: #007AFF;
+      color: white;
+    }
+
+    .footer {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid #f0f0f0;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #007AFF;
+      text-decoration: none;
+      font-size: 12px;
+      margin: 0 8px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="app-root" style="display:flex; gap:12px; width:760px;">
-    <!-- Sidebar -->
-    <aside style="width:180px; background:transparent; padding:12px; border-radius:8px; box-sizing:border-box;">
-      <nav style="margin-top:6px; display:flex; flex-direction:column; gap:14px;">
-        <a href="#" class="left-link">Account Security</a>
-  <a href="#" id="addLink" class="left-link">Add Password</a>
-        <a href="#" class="left-link">Secure Share</a>
-      </nav>
-      <div style="margin-top:20px; display:flex; align-items:center; gap:8px;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 1v2" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        <a href="#" id="optionsLink">Settings</a>
-      </div>
-    </aside>
+  <div class="header">
+    <div class="logo-section">
+      <img src="icons/logo.png" alt="LPH" id="logo">
+      <h1>LPH Manager</h1>
+    </div>
+    <div class="status-section">
+      <span class="status-dot" id="statusDot"></span>
+      <span class="status-text" id="statusText">Locked</span>
+    </div>
+  </div>
 
-    <!-- Main area -->
-    <main style="flex:1; padding:8px; box-sizing:border-box;">
-      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
-        <div style="display:flex; align-items:center; gap:12px;">
-          <img src="icons/logo.png" alt="LPH" id="popupLogo" style="width:56px; height:56px; border-radius:10px; object-fit:cover; background:#fff; padding:4px; box-shadow:0 2px 6px rgba(0,0,0,0.25);">
-          <h1 style="margin:0;">Welcome back, User</h1>
-        </div>
-        <div style="display:flex; gap:8px; align-items:center;">
-          <div class="status" style="display:flex; gap:6px; align-items:center;">
-            <span class="status-dot" id="statusDot"></span>
-            <span id="statusText">Locked</span>
-          </div>
-          <button id="lockBtn" style="display:none;">Lock</button>
-          <a href="#" id="logoutBtn" style="display:none; color:#9aa4ff; margin-left:8px; text-decoration:underline;">Sign Out</a>
-        </div>
-      </div>
+  <div class="actions" id="headerActions" style="display: none;">
+    <button class="btn" id="lockBtn">🔒 Lock</button>
+    <button class="btn btn-danger" id="signoutBtn">Sign Out</button>
+  </div>
 
-      <div style="display:flex; align-items:center; gap:8px; margin-top:12px;">
-        <input id="searchBox" type="text" placeholder="Search websites..." style="flex:1; padding:14px 18px; border-radius:28px; border:1px solid #6b6b6b; background:#262626; color:#cfcfcf; font-size:13px;">
-        <button id="searchBtn" style="padding:10px; border-radius:10px; background:#2b2b2b; color:#ddd; border:1px solid #6b6b6b;">🔎</button>
-        <button id="viewAllBtn" style="padding:10px 14px; border-radius:10px; margin-left:6px; background:#2b2b2b; color:#fff; border:1px solid #6b6b6b;">View All</button>
-      </div>
+  <!-- Locked View -->
+  <div id="lockedView" style="display: none;">
+    <div class="locked-view">
+      <div style="font-size: 48px; margin-bottom: 16px;">🔐</div>
+      <div style="font-size: 16px; font-weight: 600; margin-bottom: 8px;">Vault Locked</div>
+      <div style="font-size: 13px; color: #666; margin-bottom: 16px;">Enter your master password to unlock</div>
+      <input type="password" id="unlockInput" placeholder="Master password" autocomplete="current-password">
+      <button id="unlockBtn">Unlock Vault</button>
+    </div>
+  </div>
 
-      <section id="syncInfo" style="margin-top:12px; display:none;"></section>
+  <!-- Unlocked View -->
+  <div id="unlockedView" style="display: none;">
+    <div class="search-section">
+      <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search passwords...">
+    </div>
 
-      <!-- Locked / Unlock area -->
-      <div id="lockedView" style="margin-top:12px; display:none;">
-        <div>Enter master password to unlock:</div>
-        <div style="margin-top:8px;">
-          <input type="password" id="unlockPwd" placeholder="Master password" style="width:100%; padding:8px; border-radius:8px; border:1px solid #ddd;">
-        </div>
-        <div style="margin-top:8px;">
-          <button id="unlockBtn" class="btn-primary" style="width:100%;">Unlock</button>
-        </div>
-      </div>
+    <div class="quick-actions">
+      <button id="addPasswordBtn">➕ Add Password</button>
+      <button id="viewAllBtn">📋 View All</button>
+    </div>
 
-      <!-- Grid of site cards -->
-      <div id="unlockedView" style="margin-top:16px; display:none;">
-        <h3 style="margin:0 0 12px 0; font-size:16px;">Websites</h3>
-        <div id="credsGrid" style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
-          <!-- cards will be injected here -->
-        </div>
-        <div class="row muted" id="noCreds" style="display:none; margin-top:12px;">No saved credentials.</div>
+    <div style="margin: 16px 0 8px 0; font-size: 13px; font-weight: 600; color: #666;">
+      <span id="listTitle">Passwords for this site</span>
+    </div>
+
+    <div class="credentials-list" id="credentialsList">
+      <div class="empty-state">
+        <div class="empty-state-icon">🔐</div>
+        <div style="font-size: 14px; margin-bottom: 8px;">No passwords saved</div>
+        <div style="font-size: 12px; color: #999;">Save passwords as you log into websites</div>
       </div>
-    </main>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="#" id="optionsLink">⚙️ Settings</a>
+    <a href="#" id="helpLink">❓ Help</a>
   </div>
 
   <script type="module" src="popup.js"></script>
